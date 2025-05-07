@@ -716,34 +716,37 @@
 
 
 
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
 
+    // Formdan verileri al
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
     const subject = document.getElementById("subject").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    if (!name || !email || !message) {
-        alert("Lütfen gerekli tüm alanları doldurun.");
-        return;
-    }
-
+    console.log("gelen değerleer",name,email,message)
+    // Form verilerinden bir e-posta gövdesi oluştur
     const fullMessage = `Ad Soyad: ${name}\nE-posta: ${email}\nTelefon: ${phone}\nKonu: ${subject}\nMesaj:\n${message}`;
 
+    // mailto bağlantısını oluştur
     const mailtoLink = `mailto:demirciogluhasanali@gmail.com?subject=${encodeURIComponent("Yeni Form Mesajı: " + subject)}&body=${encodeURIComponent(fullMessage)}`;
 
+    // Bilgi mesajı göster
     const formMessage = document.getElementById("form-message");
+    formMessage.textContent = "Mail uygulamanız açılıyor...";
     formMessage.classList.remove("hidden");
     formMessage.classList.add("text-green-500");
-    formMessage.textContent = "Mail uygulamanız açılıyor...";
 
+    // 3 saniye sonra mesajı gizle
     setTimeout(() => {
-        window.location.href = mailtoLink;
-        formMessage.classList.add("hidden");
-    }, 2000);
-});
+      formMessage.classList.add("hidden");
+    }, 3000);
+
+    // Mail uygulamasına yönlendir
+    window.location.href = mailtoLink;
+  });
 
 
     </script>
