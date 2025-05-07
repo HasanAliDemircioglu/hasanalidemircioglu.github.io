@@ -725,7 +725,6 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
     const subject = document.getElementById("subject").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    // Önce verilerin boş olup olmadığını kontrol et (isteğe bağlı)
     if (!name || !email || !message) {
         alert("Lütfen gerekli tüm alanları doldurun.");
         return;
@@ -735,13 +734,11 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
 
     const mailtoLink = `mailto:demirciogluhasanali@gmail.com?subject=${encodeURIComponent("Yeni Form Mesajı: " + subject)}&body=${encodeURIComponent(fullMessage)}`;
 
-    // Bildirim mesajını göster
     const formMessage = document.getElementById("form-message");
     formMessage.classList.remove("hidden");
     formMessage.classList.add("text-green-500");
     formMessage.textContent = "Mail uygulamanız açılıyor...";
 
-    // 2 saniye sonra mailto yönlendirmesi
     setTimeout(() => {
         window.location.href = mailtoLink;
         formMessage.classList.add("hidden");
