@@ -715,39 +715,33 @@
               });
 
 
-
 document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
+    e.preventDefault();
 
-    // Formdan verileri al
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
     const subject = document.getElementById("subject").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    console.log("gelen değerleer",name,email,message)
-    // Form verilerinden bir e-posta gövdesi oluştur
-    const fullMessage = `Ad Soyad: ${name}\nE-posta: ${email}\nTelefon: ${phone}\nKonu: ${subject}\nMesaj:\n${message}`;
+     console.log("gelen değerleer",name,email,message)
 
-    // mailto bağlantısını oluştur
-    const mailtoLink = `mailto:demirciogluhasanali@gmail.com?subject=${encodeURIComponent("Yeni Form Mesajı: " + subject)}&body=${encodeURIComponent(fullMessage)}`;
+    
+    const body = `Ad: ${name}%0D%0AE-posta: ${email}%0D%0ATelefon: ${phone}%0D%0AKonu: ${subject}%0D%0AMesaj: ${message}`;
 
-    // Bilgi mesajı göster
-    const formMessage = document.getElementById("form-message");
-    formMessage.textContent = "Mail uygulamanız açılıyor...";
-    formMessage.classList.remove("hidden");
-    formMessage.classList.add("text-green-500");
+    // Mesajı göster
+    const messageDiv = document.getElementById("form-message");
+    messageDiv.innerText = "Mail uygulamanız açılıyor...";
+    messageDiv.classList.remove("hidden");
 
     // 3 saniye sonra mesajı gizle
     setTimeout(() => {
-      formMessage.classList.add("hidden");
+        messageDiv.classList.add("hidden");
     }, 3000);
 
-    // Mail uygulamasına yönlendir
-    window.location.href = mailtoLink;
-  });
-
+    // Mail uygulamasını aç
+    window.location.href = `mailto:seninmailadresin@gmail.com?subject=İletişim Formu&body=${body}`;
+});
 
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9397a95b3691d60f',t:'MTc0NjE5MDQwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
