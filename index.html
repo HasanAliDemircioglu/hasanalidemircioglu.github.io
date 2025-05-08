@@ -421,7 +421,7 @@
                             <textarea id="message" rows="5" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-primary" required=""></textarea>
                         </div>
                         <div>
-                            <button type="submit" class="w-full bg-primary text-secondary font-semibold py-3 px-6 rounded-md hover:bg-primary/90 transition duration-300">Gönder</button>
+                            <button type="submit" class="w-full bg-primary text-secondary font-semibold py-3 px-6 rounded-md hover:bg-primary/90 transition duration-300" id="formGonderBtn">Gönder</button>
                         </div>
                         <div id="form-message" class="mt-4 text-center hidden"></div>
                     </form>
@@ -715,7 +715,7 @@
               });
 
 
-document.getElementById("contact-form").addEventListener("click", function (e) {
+document.getElementById("formGonderBtn").addEventListener("click", function (e) {
     
     e.preventDefault();
     
