@@ -767,7 +767,7 @@ document.getElementById("formGonderBtn").addEventListener("click", function (e) 
         const gallery = document.getElementById("gallery");
         images.forEach(img => {
           const imageEl = document.createElement("img");
-          imageEl.src = img.url+"/"+img.name;
+          imageEl.src = img.url;
           imageEl.alt = img.name;
           gallery.appendChild(imageEl);
         });
