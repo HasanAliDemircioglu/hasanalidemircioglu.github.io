@@ -716,7 +716,7 @@
 
 
 document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
+   
 
     var aa=document.getElementById("name").value;
      var bb=document.getElementById("name").innerHTML;
@@ -729,7 +729,7 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 
      console.log("gelen değerleer",name,email,message)
 
-    
+     e.preventDefault();
     const body = `Ad: ${name}%0D%0AE-posta: ${email}%0D%0ATelefon: ${phone}%0D%0AKonu: ${subject}%0D%0AMesaj: ${message}`;
 
     // Mesajı göster
