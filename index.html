@@ -763,25 +763,27 @@ document.getElementById("formGonderBtn").addEventListener("click", function (e) 
 
 
 
-        
-
-
+    
   fetch("https://script.google.com/macros/s/AKfycbz4sR1V2VF8dYHT4Vl7HA-66Tvx2QWc_8u_46R7AhclgdUqBlonux7SG5eo6Ol8GgtT/exec")
-      .then(res => res.json())
-      .then(data => {
-        const gallery = document.getElementById("gallery");
-        data.forEach(img => {
-          const div = document.createElement("div");
-          div.className = "item";
-          div.innerHTML = `<img loading="lazy" src="${img.url}" alt="${img.name}"><p>${img.name}</p>`;
-          gallery.appendChild(div);
-        });
-      })
-      .catch(err => {
-        console.error("Galeri yüklenemedi:", err);
-      });
+  .then(res => res.json())
+  .then(data => {
+    const gallery = document.getElementById("gallery");
+    data.forEach(img => {
+      const div = document.createElement("div");
+      div.className = "item";
 
-
+      const image = new Image();
+      image.src = img.url;
+      image.alt = img.name;
+      image.onload = () => {
+        div.innerHTML = `<img src="${img.url}" alt="${img.name}"><p>${img.name}</p>`;
+        gallery.appendChild(div);
+      };
+    });
+  })
+  .catch(err => {
+    console.error("Galeri yüklenemedi:", err);
+  });
 
         
     </script>
