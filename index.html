@@ -773,7 +773,7 @@ document.getElementById("formGonderBtn").addEventListener("click", function (e) 
         data.forEach(img => {
           const div = document.createElement("div");
           div.className = "item";
-          div.innerHTML = `<img src="${img.url}" alt="${img.name}"><p>${img.name}</p>`;
+          div.innerHTML = `<img loading="lazy" src="${img.url}" alt="${img.name}"><p>${img.name}</p>`;
           gallery.appendChild(div);
         });
       })
