@@ -718,6 +718,9 @@
 document.getElementById("contact-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
+    var aa=document.getElementById("name").value;
+     var bb=document.getElementById("name").innerHTML;
+       console.log("gelen değerleer2",name)
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
