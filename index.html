@@ -763,28 +763,26 @@ document.getElementById("formGonderBtn").addEventListener("click", function (e) 
 
 
 
-    
-  fetch("https://script.google.com/macros/s/AKfycbz4sR1V2VF8dYHT4Vl7HA-66Tvx2QWc_8u_46R7AhclgdUqBlonux7SG5eo6Ol8GgtT/exec")
-  .then(res => res.json())
-  .then(data => {
-    const gallery = document.getElementById("gallery");
-    data.forEach(img => {
-      const div = document.createElement("div");
-      div.className = "item";
 
-      const image = new Image();
-      image.src = img.url;
-      image.alt = img.name;
-      image.onload = () => {
-        div.innerHTML = `<img src="${img.url}" alt="${img.name}"><p>${img.name}</p>`;
-        gallery.appendChild(div);
-      };
-    });
-  })
-  .catch(err => {
-    console.error("Galeri yüklenemedi:", err);
-  });
 
+
+    fetch("https://script.google.com/macros/s/AKfycbz4sR1V2VF8dYHT4Vl7HA-66Tvx2QWc_8u_46R7AhclgdUqBlonux7SG5eo6Ol8GgtT/exec")
+      .then(res => res.json())
+      .then(data => {
+        const gallery = document.getElementById("gallery");
+        data.forEach(img => {
+          const div = document.createElement("div");
+          div.className = "item";
+          div.innerHTML = `<img src="${img.url}" alt="${img.name}"><p>${img.name}</p>`;
+          gallery.appendChild(div);
+        });
+      })
+      .catch(err => {
+        console.error("Galeri yüklenemedi:", err);
+      });
+
+
+        
         
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9397a95b3691d60f',t:'MTc0NjE5MDQwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
